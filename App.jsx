@@ -9,7 +9,7 @@ export default function App() {
         loop
         playsInline
       >
-        <source src="/1.mp4" type="video/mp4" />
+        <source src="/2.mp4" type="video/mp4" />
       </video>
 
       {/* Ambient background glow */}
@@ -24,15 +24,10 @@ export default function App() {
           <span style={styles.logoText}>Bizzprime</span>
         </h1>
 
-        <p style={styles.tagline}>the business backbone</p>
+        <p style={styles.tagline}>POWERING REAL PROGRESS</p>
 
         <div style={styles.comingSoon}>
-          <span>Coming Soon</span>
-          <div style={styles.loader}>
-            <span style={{ ...styles.dot, animationDelay: "0s" }} />
-            <span style={{ ...styles.dot, animationDelay: "0.2s" }} />
-            <span style={{ ...styles.dot, animationDelay: "0.4s" }} />
-          </div>
+          <span>Evalutaion In Progress, Stay tuned!</span>
         </div>
 
         
@@ -103,6 +98,7 @@ const styles = {
     fontWeight: 700,
     letterSpacing: "-1px",
     color: "#ffffff",
+    fontFamily: "DM Sans, system-ui, sans-serif",
     textShadow:
       "0 0 20px rgba(99,102,241,0.35), 0 0 40px rgba(56,189,248,0.25)",
     animation: "logoPulse 4s ease-in-out infinite",
@@ -112,8 +108,14 @@ const styles = {
     marginTop: "10px",
     fontSize: "1rem",
     color: "#94a3b8",
-    letterSpacing: "0.08em",
-    textTransform: "lowercase",
+    letterSpacing: "0.15em",
+    fontWeight: 500,
+    background: "linear-gradient(90deg, #94a3b8, #cbd5e1, #94a3b8)",
+    backgroundClip: "text",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    textShadow: "0 0 20px rgba(56,189,248,0.15)",
+    animation: "taglineFade 4s ease-in-out infinite",
   },
 
   comingSoon: {
@@ -122,8 +124,15 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     gap: "12px",
-    fontSize: "1rem",
-    color: "#e5e7eb",
+    fontSize: "1.1rem",
+    fontWeight: 600,
+    letterSpacing: "0.05em",
+    background: "linear-gradient(90deg, #cbd5e1, #e5e7eb, #cbd5e1)",
+    backgroundClip: "text",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    textShadow: "0 0 15px rgba(56,189,248,0.2)",
+    animation: "comingSoonGlow 3s ease-in-out infinite",
   },
 
   loader: {
@@ -132,12 +141,13 @@ const styles = {
   },
 
   dot: {
-    width: "8px",
-    height: "8px",
+    width: "10px",
+    height: "10px",
     borderRadius: "50%",
     background: "#38bdf8",
     opacity: 0,
     animation: "dotPulse 1.4s infinite ease-in-out",
+    boxShadow: "0 0 8px rgba(56,189,248,0.6)",
   },
 
   microCopy: {
@@ -154,6 +164,8 @@ const styles = {
 
 const styleSheet = document.createElement("style");
 styleSheet.innerHTML = `
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -187,6 +199,28 @@ html, body {
 @keyframes dotPulse {
   0%, 80%, 100% { opacity: 0; }
   40% { opacity: 1; }
+}
+
+@keyframes taglineFade {
+  0%, 100% {
+    opacity: 0.7;
+    text-shadow: 0 0 15px rgba(56,189,248,0.1);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 25px rgba(56,189,248,0.25);
+  }
+}
+
+@keyframes comingSoonGlow {
+  0%, 100% {
+    opacity: 0.85;
+    text-shadow: 0 0 15px rgba(56,189,248,0.2);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 30px rgba(56,189,248,0.35);
+  }
 }
 `;
 document.head.appendChild(styleSheet);
