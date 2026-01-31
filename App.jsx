@@ -80,6 +80,7 @@ const styles = {
     height: "100%",
     objectFit: "cover",
     zIndex: 0,
+    filter: "blur(10px)",
   },
 
   container: {
